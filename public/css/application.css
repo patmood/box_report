@@ -1,9 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Francois+One);
+
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: 1.5em;
+  font-size: 18px;
+  color: #444;
+}
+.signout {
+  color: #7f8c8d;
+  font-size: 14px;
+  text-align: right;
+  padding-right: 10px;
+  text-decoration: none;
+}
+a {color: #3498db; text-decoration: none;}
+a:hover {color: #2980b9; text-decoration: none;}
+
+
+h1 {
+  font-family: 'Francois One', sans-serif;
+  line-height: 1.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 72px;
+  color: #222;
+  text-align: center;
+}
+h2 {
+  font-family: 'Francois One', sans-serif;
+  line-height: 1.1em;
+  font-weight: 500;
+  font-size: 42px;
+  color: #222;
+}
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 80%;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 1px solid #bdc3c7;
+  border-radius: 20px;
+  /*box-shadow: 4px 4px 10px #ecf0f1;*/
+
 }
 th {
   text-align: left;
+}
+
+.btn {
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  background: #2ecc71;
+  color: #fff;
+}
+.btn-enter {
+  font-size: 24px;
+  display: block;
+  margin: auto;
+  width: 200px;
+  padding: 20px 45px 20px 45px;
+}
+.btn a {color: #ecf0f1; text-decoration: none;}
+.btn a:hover {color: #ecf0f1; text-decoration: none;}
+
+.btn:hover{
+  background: #27ae60;
+  color: #fff;
+}
+.btn-red { background: #e74c3c}
+.btn-red:hover { background: #c0392b}
+.btn-yellow { background: #f1c40f}
+.btn-yellow:hover { background: #f39c12}
+table {
+  width: 100%;
+  margin: 20px 0 20px 0;
+}
+td {
+  border: solid 1px #ecf0f1;
+  padding: 5px 5px 5px 10px;
 }

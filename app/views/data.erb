@@ -1,0 +1,27 @@
+<h2>Meta Data</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>path</th>
+    <th>is_dir?</th>
+    <th>bytes</th>
+    <th>parent</th>
+  </tr>
+  <% @user.folders.each do |folder| %>
+    <tr>
+      <td><%= folder.id %></td>
+      <td><%= folder.path %></td>
+      <td><%= folder.is_dir %></td>
+      <td><%= folder.bytes %></td>
+      <td><%= folder.parent %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>What's Taking up all your space?</h2>
+
+<iframe src="http://mbostock.github.io/d3/talk/20111018/treemap.html" style="
+  width:100%;
+  height: 680px;
+  border: none;">
+</iframe>

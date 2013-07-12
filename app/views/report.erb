@@ -1,0 +1,30 @@
+<div class="signout">Welcome <%= @user.display_name %>, <a href="/signout">Signout</a></div>
+
+<div class="container">
+  <h2><i class="icon-dropbox"></i> Box Report</h2>
+  <p>G'day <%= @user.display_name %>!</p>
+  <p>Your quota is: <%= @user.quota_total %> MB</p>
+  <ul>
+  	<li><%= @user.quota_normal %> MB used by your files</li>
+  	<li><%= @user.quota_shared %> MB used by shared files</li>
+  </ul>
+  <p>Get more space by referring people with your link: <a href="<%= @user.referral_link %>"><%= @user.referral_link %></a></p>
+
+	<div class="results">
+	  <p>Fetch more detailed data from your dropbox:</p>
+	  <a href="/fetch_data" class="btn btn-red" id="fetch">Fetch Data!</a>
+	  <p>Warning: This may take a while if you have many (hundreds) of folders...</p>
+	</div>
+
+	<%= erb :data if @user.folders.first  %>
+
+  <h3>Things to Add:</h3>
+  <ul>
+  	<li>Integrate charts and zoomable treemap</li>
+  	<li>Percentage of quota used</li>
+  	<li>Bar graph of file types</li>
+  	<li>Largest/Smallest/Average file size</li>
+  	<li>Oldest/Newest files</li>
+  	<li>Various other awesome things</li>
+  </ul>
+</div>

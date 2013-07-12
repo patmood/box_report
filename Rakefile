@@ -123,6 +123,11 @@ task "console" do
   exec "irb -r./config/environment"
 end
 
+desc 'Reset the database'
+task "reset" do
+  exec "rake db:drop && rake db:create && rake db:migrate"
+end
+
 desc "Run the specs"
 RSpec::Core::RakeTask.new(:spec)
 

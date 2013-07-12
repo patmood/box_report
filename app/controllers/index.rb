@@ -1,4 +1,9 @@
 get '/' do
-  # Look in app/views/index.erb
   erb :index
+end
+
+get '/report' do
+  authed?
+  @user = User.find(session[:user_id])
+  erb :report
 end
