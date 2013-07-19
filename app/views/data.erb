@@ -7,7 +7,7 @@
     <th>bytes</th>
     <th>parent</th>
   </tr>
-  <% @user.folders.each do |folder| %>
+  <% @folders.each do |folder| %>
     <tr>
       <td><%= folder.id %></td>
       <td><%= folder.path %></td>
@@ -18,10 +18,40 @@
   <% end %>
 </table>
 
-<h2>What's Taking up all your space?</h2>
 
-<iframe src="http://mbostock.github.io/d3/talk/20111018/treemap.html" style="
-  width:100%;
-  height: 680px;
-  border: none;">
-</iframe>
+
+<h2>What's Taking up all your space?</h2>
+<div id="chart_div_treemap" style="width: 900px; height: 500px; margin: auto;"></div>
+<p>Click on a folder to see a breakdown, Right Click to go up a directory</p>
+
+<h2>Fun Facts!</h2>
+<p>Largest File: <%= @file_stats[:max] %> MB</p>
+<p>Mean File: <%= @file_stats[:mean] %> MB</p>
+<p>Smallest File: <%= @file_stats[:min] %> KB</p>
+<p>Number of Files: <%= @file_stats[:num_files] %></p>
+<p>Total Size of Files: <%= @file_stats[:sum] %> MB</p>
+
+<script type="text/javascript">
+  google.load("visualization", "1", {packages:["treemap"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    // Create and populate the data table.
+    var data = google.visualization.arrayToDataTable([
+      ['Location', 'Parent', 'Size (KB)'],
+      ['/',    null,                 0],
+      <% @folders.each do |folder| %>
+      ['<%= folder.path %>', '<%= folder.parent %>', <%= folder.bytes+10000 %>],
+      <% end %>
+    ]);
+
+    // Create and draw the visualization.
+    var tree = new google.visualization.TreeMap(document.getElementById('chart_div_treemap'));
+    tree.draw(data, {
+      minColor: '#2ecc71',
+      midColor: '#3498db',
+      maxColor: '#9b59b6',
+      headerHeight: 30,
+      fontColor: 'black',
+      showScale: true});
+    }
+</script>

@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Francois+One);
 
+#spinner {display: none;}
 body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   line-height: 1.5em;
@@ -80,4 +81,13 @@ table {
 td {
   border: solid 1px #ecf0f1;
   padding: 5px 5px 5px 10px;
+}
+.stats {
+  border: 1px solid #bdc3c7;
+  border-radius: 20px;
+  padding: 20px;
+}
+.stats div {
+  display: inline-block;
+  vertical-align: middle;
 }

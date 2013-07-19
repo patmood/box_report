@@ -24,8 +24,10 @@ end
 
 
 require 'erb'
-
 require 'dropbox_sdk'
+require 'gon-sinatra'
+
+Sinatra::register Gon::Sinatra
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

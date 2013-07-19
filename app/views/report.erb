@@ -2,12 +2,19 @@
 
 <div class="container">
   <h2><i class="icon-dropbox"></i> Box Report</h2>
-  <p>G'day <%= @user.display_name %>!</p>
-  <p>Your quota is: <%= @user.quota_total %> MB</p>
-  <ul>
-  	<li><%= @user.quota_normal %> MB used by your files</li>
-  	<li><%= @user.quota_shared %> MB used by shared files</li>
-  </ul>
+  <p>G'day <%= @user.display_name %>, welcome to your Dropbox dashboard!</p>
+  <div class="stats">
+    <div id="quota_numbers">
+      <p>Your quota is: <%= @user.quota_total %> MB</p>
+      <ul>
+      	<li><%= @user.quota_normal %> MB used by your files</li>
+      	<li><%= @user.quota_shared %> MB used by shared files</li>
+        <li>(<%= @user.quota_total - (@user.quota_normal + @user.quota_shared) %> MB Free)</li>
+      </ul>
+    </div>
+    <div id="chart_div_pie"></div>
+    <div id="chart_div_gauge"></div>
+  </div>
   <p>Get more space by referring people with your link: <a href="<%= @user.referral_link %>"><%= @user.referral_link %></a></p>
 
 	<div class="results">
@@ -15,16 +22,8 @@
 	  <a href="/fetch_data" class="btn btn-red" id="fetch">Fetch Data!</a>
 	  <p>Warning: This may take a while if you have many (hundreds) of folders...</p>
 	</div>
+  <div id="spinner"><p style="text-align: center;"><img src="images/spinner.gif" ></p></div>
 
-	<%= erb :data if @user.folders.first  %>
-
-  <h3>Things to Add:</h3>
-  <ul>
-  	<li>Integrate charts and zoomable treemap</li>
-  	<li>Percentage of quota used</li>
-  	<li>Bar graph of file types</li>
-  	<li>Largest/Smallest/Average file size</li>
-  	<li>Oldest/Newest files</li>
-  	<li>Various other awesome things</li>
-  </ul>
-</div>
+  <%= erb :data if @user.folders.first  %>
+ 
+ </div>

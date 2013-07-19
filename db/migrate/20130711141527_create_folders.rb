@@ -4,7 +4,7 @@ class CreateFolders < ActiveRecord::Migration
       t.text :path
       t.boolean :is_dir
       t.integer :bytes, :limit => 8
-      t.integer :parent
+      t.text :parent
       t.integer :total_size, :limit => 8
       t.belongs_to :user
       t.timestamps

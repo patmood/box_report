@@ -24,3 +24,4 @@ group :test do
 end
 
 gem 'dropbox-sdk'
+gem 'gon-sinatra'
