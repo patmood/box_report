@@ -1,6 +1,6 @@
 #Box Report
 
-Need a little interview practice?  Brush up on your data structures and algorithms with our eerily lifelike Stephen Hawking simulator!
+Ever wondered what's taking up all that space in your dropbox? Visualize and explore the contents of your dropbox to easily find the files or folders taking up the most space.
 
 Site built with Sinatra.  Authentication using Dropbox API. Graphs with Google Charts
 
